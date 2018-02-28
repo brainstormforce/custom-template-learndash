@@ -29,7 +29,6 @@ if ( ! class_exists( 'CTLearnDash_Loader' ) ) {
 		 */
 		public static function get_instance() {
 
-
 			if ( ! class_exists( 'SFWD_LMS' ) ) {
 				return false;
 			}

@@ -66,8 +66,8 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 		 *
 		 * @return void
 		 */
-		function remove_unwanted_tabs() {
-			
+		public function remove_unwanted_tabs() {
+
 			global $parent_file, $current_screen, $submenu_file, $pagenow;
 			if ( ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && 'ld-custom-template' === $current_screen->post_type ) || 'edit-ld-custom-template' === $current_screen->id ) {
 				remove_all_actions( 'learndash_admin_tabs_set' );
@@ -157,7 +157,7 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 
 			if ( isset( $posts->posts ) ) {
 				foreach ( $posts->posts as $key => $id ) {
-					$all_posts[$id] = get_the_title( $id );
+					$all_posts[ $id ] = get_the_title( $id );
 				}
 			}
 
@@ -170,17 +170,17 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 			);
 
 			$fields['sfwd-courses']['fields']['learndash_course_template'] = array(
-				'name' => __( 'Select Custom Template for this Course', 'custom-template-learndash' ),
-				'type' => 'select',
+				'name'            => __( 'Select Custom Template for this Course', 'custom-template-learndash' ),
+				'type'            => 'select',
 				'initial_options' => $all_posts,
-				'default' => 'none',
-				'help_text' => $description,
-				'show_in_rest' => true,
-				'rest_args' => array(
+				'default'         => 'none',
+				'help_text'       => $description,
+				'show_in_rest'    => true,
+				'rest_args'       => array(
 					'schema' => array(
 						'type' => 'string',
-					)
-				)
+					),
+				),
 			);
 
 			return $fields;

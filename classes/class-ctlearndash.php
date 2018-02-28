@@ -138,7 +138,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 
 			$course_id = learndash_get_course_id();
-			$user_id = get_current_user_id();
+			$user_id   = get_current_user_id();
 
 			if ( is_user_logged_in() && sfwd_lms_has_access( $course_id, $user_id ) ) {
 				return false;
@@ -165,7 +165,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 
 			$course_id = learndash_get_course_id();
-			$user_id = get_current_user_id();
+			$user_id   = get_current_user_id();
 
 			if ( is_user_logged_in() && sfwd_lms_has_access( $course_id, $user_id ) ) {
 				return false;
@@ -223,7 +223,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 
 			$course_id = learndash_get_course_id();
-			$user_id = get_current_user_id();
+			$user_id   = get_current_user_id();
 			if ( is_user_logged_in() && sfwd_lms_has_access( $course_id, $user_id ) ) {
 				return false;
 			}
