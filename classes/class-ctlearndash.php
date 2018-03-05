@@ -39,13 +39,41 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 * Constructor
 		 */
 		private function __construct() {
-
 			add_action( 'wp', array( $this, 'override_template_include' ), 999 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 999 );
 			add_filter( 'astra_page_layout', array( $this, 'astra_page_layout' ), 999 );
 			add_filter( 'astra_get_content_layout', array( $this, 'content_layout' ), 999 );
 			add_filter( 'astra_the_title_enabled', array( $this, 'page_title' ), 999 );
 			add_filter( 'astra_featured_image_enabled', array( $this, 'featured_image' ), 999 );
+			add_filter( 'body_class', array( $this, 'body_class' ) );
+		}
+
+		/**
+		 * Add class to the body tag if custom template is use for a course.
+		 *
+		 * @param  Array $classes class names for the body tag.
+		 * @return Array          class names for the body tag.
+		 */
+		public function body_class( $classes ) {
+			// Don't run any code in admin area.
+			if ( is_admin() ) {
+				return $classes;
+			}
+
+			// Don't override the template if the post type is not `course`.
+			if ( ! is_singular( 'sfwd-courses' ) ) {
+				return $classes;
+			}
+
+			$course_id = learndash_get_course_id();
+			$user_id   = get_current_user_id();
+			if ( is_user_logged_in() && sfwd_lms_has_access( $course_id, $user_id ) ) {
+				return $classes;
+			}
+
+			$classes[] = 'custom-template-lifterlms';
+
+			return $classes;
 		}
 
 		/**
@@ -203,6 +231,19 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			if ( ! empty( $wpb_custom_css ) ) {
 				wp_add_inline_style( 'astra-theme-css', $wpb_custom_css );
 			}
+
+			// Custom CSS to hide elements from LearnDash when a custom template is used.
+			$css = '
+				.custom-template-lifterlms .btn-join {
+				    display: none;
+				}
+
+				.custom-template-lifterlms #learndash_course_materials {
+				    display: none;
+				}
+			';
+
+			wp_add_inline_style( 'learndash_style', $css );
 		}
 
 		/**
