@@ -33,5 +33,8 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 
 == Changelog ==
 
+= 1.0.1 =
+- Correctly hide the content added by learndash when custom template is used.
+
 = 1.0.0 =
-* Initial Release
+- Initial Release
