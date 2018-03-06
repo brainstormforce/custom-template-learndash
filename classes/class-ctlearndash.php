@@ -234,9 +234,15 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 
 			// Custom CSS to hide elements from LearnDash when a custom template is used.
 			$css = '
-				.custom-template-lifterlms :not(.custom-template-learndash-content) .btn-join,
-				.custom-template-lifterlms :not(.custom-template-learndash-content) #learndash_course_status,
-				.custom-template-lifterlms :not(.custom-template-learndash-content) #learndash_course_materials {
+				.custom-template-lifterlms .custom-template-learndash-content .btn-join,
+				.custom-template-lifterlms .custom-template-learndash-content #learndash_course_status,
+				.custom-template-lifterlms .custom-template-learndash-content #learndash_course_materials {
+				    display: initial;
+				}
+
+				.custom-template-lifterlms .btn-join,
+				.custom-template-lifterlms #learndash_course_status,
+				.custom-template-lifterlms #learndash_course_materials {
 				    display: none;
 				}
 			';
@@ -278,7 +284,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 */
 		public function render( $content ) {
 
-			$content .= '<div class="custom-template-learndash-content">';
+			$content = '<div class="custom-template-learndash-content">';
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 
 			if ( $template ) {
