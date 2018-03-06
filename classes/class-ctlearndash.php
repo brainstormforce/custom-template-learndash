@@ -229,16 +229,14 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			// Add VC style if it is activated.
 			$wpb_custom_css = get_post_meta( $template, '_wpb_shortcodes_custom_css', true );
 			if ( ! empty( $wpb_custom_css ) ) {
-				wp_add_inline_style( 'astra-theme-css', $wpb_custom_css );
+				wp_add_inline_style( 'learndash_style', $wpb_custom_css );
 			}
 
 			// Custom CSS to hide elements from LearnDash when a custom template is used.
 			$css = '
-				.custom-template-lifterlms .btn-join {
-				    display: none;
-				}
-
-				.custom-template-lifterlms #learndash_course_materials {
+				.custom-template-lifterlms :not(.custom-template-learndash-content) .btn-join,
+				.custom-template-lifterlms :not(.custom-template-learndash-content) #learndash_course_status,
+				.custom-template-lifterlms :not(.custom-template-learndash-content) #learndash_course_materials {
 				    display: none;
 				}
 			';
@@ -280,10 +278,15 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 */
 		public function render( $content ) {
 
+			$content .= '<div class="custom-template-learndash-content">';
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
+
 			if ( $template ) {
-				$content = $this->get_action_content( $template );
+				$content .= $this->get_action_content( $template );
 			}
+
+			$content .= '</div>';
+
 			return $content;
 		}
 
