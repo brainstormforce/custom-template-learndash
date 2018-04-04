@@ -86,7 +86,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 
 			$template = self::get_template();
 
-			if ( $template ) {
+			if ( 'none' != $template && $template ) {
 				$template_sidebar = get_post_meta( $template, 'site-sidebar-layout', true );
 				if ( ! empty( $template_sidebar ) && 'default' !== $template_sidebar ) {
 					$sidebar = $template_sidebar;
@@ -105,7 +105,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function content_layout( $layout ) {
 
 			$template = self::get_template();
-			if ( $template ) {
+			if ( 'none' != $template && $template ) {
 				$template_layout = get_post_meta( $template, 'site-content-layout', true );
 				if ( ! empty( $template_layout ) && 'default' !== $template_layout ) {
 					$layout = $template_layout;
@@ -124,7 +124,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function page_title( $status ) {
 
 			$template = self::get_template();
-			if ( $template ) {
+			if ( 'none' != $template && $template ) {
 				$template_status = get_post_meta( $template, 'site-post-title', true );
 				if ( ! empty( $template_status ) ) {
 					$status = ( 'disabled' === $template_status ) ? false : true;
@@ -143,7 +143,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function featured_image( $status ) {
 
 			$template = self::get_template();
-			if ( $template && is_singular() ) {
+			if ( 'none' != $template && $template && is_singular() ) {
 				$template_status = get_post_meta( $template, 'ast-featured-img', true );
 				if ( ! empty( $template_status ) ) {
 					$status = ( 'disabled' === $template_status ) ? false : true;
@@ -200,54 +200,56 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
-			if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+			if ( 'none' != $template && $template ) {
+				if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 
-				if ( self::is_elementor_activated( $template ) ) {
+					if ( self::is_elementor_activated( $template ) ) {
 
-					$css_file = new \Elementor\Post_CSS_File( $template );
-					$css_file->enqueue();
+						$css_file = new \Elementor\Post_CSS_File( $template );
+						$css_file->enqueue();
+					}
 				}
+
+				// Check if current layout is built using the thrive architect.
+				if ( self::is_tve_activated( $template ) ) {
+
+					if ( tve_get_post_meta( $template, 'thrive_icon_pack' ) && ! wp_style_is( 'thrive_icon_pack', 'enqueued' ) ) {
+						TCB_Icon_Manager::enqueue_icon_pack();
+					}
+
+					tve_enqueue_extra_resources( $template );
+					tve_enqueue_style_family( $template );
+					tve_enqueue_custom_fonts( $template, true );
+					tve_load_custom_css( $template );
+
+					add_filter( 'tcb_enqueue_resources', '__return_true' );
+					tve_frontend_enqueue_scripts();
+					remove_filter( 'tcb_enqueue_resources', '__return_true' );
+				}
+
+				// Add VC style if it is activated.
+				$wpb_custom_css = get_post_meta( $template, '_wpb_shortcodes_custom_css', true );
+				if ( ! empty( $wpb_custom_css ) ) {
+					wp_add_inline_style( 'learndash_style', $wpb_custom_css );
+				}
+
+				// Custom CSS to hide elements from LearnDash when a custom template is used.
+				$css = '
+					.custom-template-lifterlms .custom-template-learndash-content .btn-join,
+					.custom-template-lifterlms .custom-template-learndash-content #learndash_course_status,
+					.custom-template-lifterlms .custom-template-learndash-content #learndash_course_materials {
+					    display: initial;
+					}
+
+					.custom-template-lifterlms .btn-join,
+					.custom-template-lifterlms #learndash_course_status,
+					.custom-template-lifterlms #learndash_course_materials {
+					    display: none;
+					}
+				';
+
+				wp_add_inline_style( 'learndash_style', $css );
 			}
-
-			// Check if current layout is built using the thrive architect.
-			if ( self::is_tve_activated( $template ) ) {
-
-				if ( tve_get_post_meta( $template, 'thrive_icon_pack' ) && ! wp_style_is( 'thrive_icon_pack', 'enqueued' ) ) {
-					TCB_Icon_Manager::enqueue_icon_pack();
-				}
-
-				tve_enqueue_extra_resources( $template );
-				tve_enqueue_style_family( $template );
-				tve_enqueue_custom_fonts( $template, true );
-				tve_load_custom_css( $template );
-
-				add_filter( 'tcb_enqueue_resources', '__return_true' );
-				tve_frontend_enqueue_scripts();
-				remove_filter( 'tcb_enqueue_resources', '__return_true' );
-			}
-
-			// Add VC style if it is activated.
-			$wpb_custom_css = get_post_meta( $template, '_wpb_shortcodes_custom_css', true );
-			if ( ! empty( $wpb_custom_css ) ) {
-				wp_add_inline_style( 'learndash_style', $wpb_custom_css );
-			}
-
-			// Custom CSS to hide elements from LearnDash when a custom template is used.
-			$css = '
-				.custom-template-lifterlms .custom-template-learndash-content .btn-join,
-				.custom-template-lifterlms .custom-template-learndash-content #learndash_course_status,
-				.custom-template-lifterlms .custom-template-learndash-content #learndash_course_materials {
-				    display: initial;
-				}
-
-				.custom-template-lifterlms .btn-join,
-				.custom-template-lifterlms #learndash_course_status,
-				.custom-template-lifterlms #learndash_course_materials {
-				    display: none;
-				}
-			';
-
-			wp_add_inline_style( 'learndash_style', $css );
 		}
 
 		/**
@@ -273,7 +275,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 				return false;
 			}
 
-			add_filter( 'the_content', array( $this, 'render' ) );
+			add_filter( 'the_content', array( $this, 'render' ), 1001 );
 		}
 
 		/**
@@ -285,7 +287,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function render( $content ) {
 
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
-			if ( 'none' != $template ) {
+			if ( 'none' != $template && $template  ) {
 				$content = '<div class="custom-template-learndash-content">';
 				$content .= $this->get_action_content( $template );
 				$content .= '</div>';
