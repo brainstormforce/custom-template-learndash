@@ -210,7 +210,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 
 			// Check if current layout is built using the thrive architect.
-			if ( self::is_tve_activated( $template ) ) {
+			if ( self::is_tve_activated( $template ) && ! is_editor_page() ) {
 
 				if ( tve_get_post_meta( $template, 'thrive_icon_pack' ) && ! wp_style_is( 'thrive_icon_pack', 'enqueued' ) ) {
 					TCB_Icon_Manager::enqueue_icon_pack();
@@ -284,14 +284,12 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 */
 		public function render( $content ) {
 
-			$content = '<div class="custom-template-learndash-content">';
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
-
-			if ( $template ) {
+			if ( 'none' != $template ) {
+				$content  = '<div class="custom-template-learndash-content">';
 				$content .= $this->get_action_content( $template );
+				$content .= '</div>';
 			}
-
-			$content .= '</div>';
 
 			return $content;
 		}
@@ -306,10 +304,11 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 */
 		public function get_action_content( $post_id ) {
 
-			global $post;
-			$current_post = $post;
-			$post         = get_post( $post_id, OBJECT ); // WPCS: OVERRIDE OK.
-			setup_postdata( $post );
+			// global $post;
+			// $current_post = $post;
+			// $post         = get_post( $post_id, OBJECT ); // WPCS: OVERRIDE OK.
+			// setup_postdata( $post );
+			$current_post = get_post( $post_id, OBJECT );
 
 			if ( class_exists( 'FLBuilderModel' ) ) {
 				$do_render  = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
@@ -332,8 +331,6 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 			if ( self::is_elementor_activated( $post_id ) ) {
 
-				// set post to glabal post.
-				$post               = $current_post; // WPCS: OVERRIDE OK.
 				$elementor_instance = Elementor\Plugin::instance();
 				ob_start();
 				echo $elementor_instance->frontend->get_builder_content_for_display( $post_id ); // WPCS: XSS OK.
@@ -349,14 +346,16 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 
 			// Add custom support for the Thrive Architect.
 			if ( self::is_tve_activated( $post_id ) ) {
+				global $post;
+				$post = $current_post;
 				ob_start();
-				echo apply_filters( 'the_content', $post->post_content ); // WPCS: XSS OK.
+				echo apply_filters( 'the_content', $current_post->post_content ); // WPCS: XSS OK.
 				wp_reset_postdata();
 				return ob_get_clean();
 			}
 
 			ob_start();
-			echo do_shortcode( $post->post_content );
+			echo do_shortcode( $current_post->post_content );
 			wp_reset_postdata();
 			return ob_get_clean();
 
