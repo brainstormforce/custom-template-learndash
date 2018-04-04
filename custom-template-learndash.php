@@ -22,7 +22,7 @@ register_activation_hook( __FILE__, 'ctlearndash_activation' );
  * @return void
  */
 function ctlearndash_activation() {
-	add_option( 'ctlearndash_activation','is-activated' );
+	add_option( 'ctlearndash_activation', 'is-activated' );
 }
 
 define( 'CTLEARNDASH_VER', '1.0.2' );

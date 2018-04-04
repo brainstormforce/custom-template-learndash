@@ -43,7 +43,7 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 		public function __construct() {
 
 			// Activation hook.
-			add_action( 'admin_init',array( $this, 'ctlearndash_initialize' ) );
+			add_action( 'admin_init', array( $this, 'ctlearndash_initialize' ) );
 
 			add_action( 'parent_file', array( $this, 'remove_unwanted_tabs' ) );
 			add_action( 'init', array( $this, 'learndash_course_landing_page_post_type' ) );
@@ -123,10 +123,10 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 		 * @return void
 		 */
 		public function ctlearndash_initialize() {
-			 if( is_admin() && get_option( 'ctlearndash_activation' ) == 'is-activated' ) {
+			if ( is_admin() && get_option( 'ctlearndash_activation' ) === 'is-activated' ) {
 					delete_option( 'ctlearndash_activation' );
 					flush_rewrite_rules();
-				}
+			}
 		}
 
 		/**
@@ -320,7 +320,7 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 			update_post_meta( $post_id, 'course_template', $landing_page_id );
 		}
 	}
-} // End if().
+}
 
 /**
  *  Kicking this off by calling 'get_instance()' method

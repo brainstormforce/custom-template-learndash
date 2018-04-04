@@ -86,7 +86,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 
 			$template = self::get_template();
 
-			if ( 'none' != $template && $template ) {
+			if ( 'none' !== $template && $template ) {
 				$template_sidebar = get_post_meta( $template, 'site-sidebar-layout', true );
 				if ( ! empty( $template_sidebar ) && 'default' !== $template_sidebar ) {
 					$sidebar = $template_sidebar;
@@ -105,7 +105,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function content_layout( $layout ) {
 
 			$template = self::get_template();
-			if ( 'none' != $template && $template ) {
+			if ( 'none' !== $template && $template ) {
 				$template_layout = get_post_meta( $template, 'site-content-layout', true );
 				if ( ! empty( $template_layout ) && 'default' !== $template_layout ) {
 					$layout = $template_layout;
@@ -124,7 +124,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function page_title( $status ) {
 
 			$template = self::get_template();
-			if ( 'none' != $template && $template ) {
+			if ( 'none' !== $template && $template ) {
 				$template_status = get_post_meta( $template, 'site-post-title', true );
 				if ( ! empty( $template_status ) ) {
 					$status = ( 'disabled' === $template_status ) ? false : true;
@@ -143,7 +143,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function featured_image( $status ) {
 
 			$template = self::get_template();
-			if ( 'none' != $template && $template && is_singular() ) {
+			if ( 'none' !== $template && $template && is_singular() ) {
 				$template_status = get_post_meta( $template, 'ast-featured-img', true );
 				if ( ! empty( $template_status ) ) {
 					$status = ( 'disabled' === $template_status ) ? false : true;
@@ -200,7 +200,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
-			if ( 'none' != $template && $template ) {
+			if ( 'none' !== $template && $template ) {
 				if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 
 					if ( self::is_elementor_activated( $template ) ) {
@@ -287,12 +287,11 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		public function render( $content ) {
 
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
-			if ( 'none' != $template && $template  ) {
-				$content = '<div class="custom-template-learndash-content">';
+			if ( 'none' !== $template && $template ) {
+				$content  = '<div class="custom-template-learndash-content">';
 				$content .= $this->get_action_content( $template );
 				$content .= '</div>';
 			}
-
 
 			return $content;
 		}
