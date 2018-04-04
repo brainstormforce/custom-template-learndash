@@ -13,9 +13,11 @@ The selected custom template will replace default LearnDash course template for 
 
 ## Description ##
 
-This plugin will help you replace default LearnDash course template for non-enrolled students with a custom template. You can design the custom template with any page builder of your choice.
+To convert more visitors into students, you need a real sales page for your LearnDash courses. However, most sites just use the default LeanDash page that is not very friendly for conversions. That is because, making a custom sales page is difficult and requires a ton of custom development. But not anymore!
 
-Convert the default LearnDash course template that appears for non enrolled students into a custom designed, sales or landing page.
+Now with this plugin, you will be able to design your own conversion friendly, custom sales page for your courses with any page builder. The page will be displayed to only non enrolled students, who have not bought the course.
+
+In nutshell, transform the default LearnDash course template that appears for non enrolled students into a custom designed, sales or landing page and convert more visitors into students!
 
 ## Installation ##
 
@@ -30,6 +32,24 @@ Convert the default LearnDash course template that appears for non enrolled stud
 5. The default LearnDash template for that individual course will be replaced with the custom template selected in previous step
 
 This plugin currently works best with the <a href="https://wpastra.com/?utm_source=wp-org&utm_medium=readme&utm_campaign=custom-templates-learndash">Astra Theme</a>.
+
+## Screenshots ##
+
+### 1. Add a new Custom Template. ###
+![Add a new Custom Template.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-1.png)
+
+### 2. Create Template with Any Page Builder of your choice! ###
+![Create Template with Any Page Builder of your choice!](http://ps.w.org/custom-template-for-learndash/assets/screenshot-2.png)
+
+### 3. Select the Template for courses. ###
+![Select the Template for courses.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-3.png)
+
+### 4. Selected Template for non - enrolled students. ###
+![Selected Template for non - enrolled students.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-4.png)
+
+### 5. For enrolled students, the normal course page appears. ###
+![For enrolled students, the normal course page appears.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-5.png)
+
 
 ## Changelog ##
 
