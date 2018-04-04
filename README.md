@@ -4,8 +4,8 @@
 **Tags:** liftlms, course, page-buider, beaver builder, elementor, visual composer  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.3  
-**Tested up to:** 4.9.4  
-**Stable tag:** 1.0.1  
+**Tested up to:** 4.9.5  
+**Stable tag:** 1.0.2  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -52,6 +52,9 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 
 
 ## Changelog ##
+
+### 1.0.2 ###
+- Fixed: PHP Notice when the Custom Template is selected to None from the course.
 
 ### 1.0.1 ###
 - Correctly hide the content added by learndash when custom template is used.
