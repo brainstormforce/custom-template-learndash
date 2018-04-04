@@ -284,14 +284,13 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 */
 		public function render( $content ) {
 
-			$content = '<div class="custom-template-learndash-content">';
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
-
-			if ( $template ) {
+			if ( 'none' != $template ) {
+				$content = '<div class="custom-template-learndash-content">';
 				$content .= $this->get_action_content( $template );
+				$content .= '</div>';
 			}
 
-			$content .= '</div>';
 
 			return $content;
 		}
