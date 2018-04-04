@@ -43,8 +43,7 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 		public function __construct() {
 
 			// Activation hook.
-			register_activation_hook( CTLEARNDASH_FILE, array( $this, 'rewrite_rules' ) );
-			register_deactivation_hook( CTLEARNDASH_FILE, 'flush_rewrite_rules' );
+			add_action( 'admin_init',array( $this, 'ctlearndash_initialize' ) );
 
 			add_action( 'parent_file', array( $this, 'remove_unwanted_tabs' ) );
 			add_action( 'init', array( $this, 'learndash_course_landing_page_post_type' ) );
@@ -116,18 +115,18 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 			);
 		}
 
+
 		/**
-		 * Reset write rules.
+		 * Reset write rules when plugin is activated.
 		 *
 		 * @since 1.0.2
 		 * @return void
 		 */
-		public function rewrite_rules() {
-
-			$this->learndash_course_landing_page_post_type();
-
-			// flush rewrite rules.
-			flush_rewrite_rules();
+		public function ctlearndash_initialize() {
+			 if( is_admin() && get_option( 'ctlearndash_activation' ) == 'is-activated' ) {
+					delete_option( 'ctlearndash_activation' );
+					flush_rewrite_rules();
+				}
 		}
 
 		/**
