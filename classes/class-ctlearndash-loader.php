@@ -62,4 +62,3 @@ if ( ! class_exists( 'CTLearnDash_Loader' ) ) {
 }
 
 add_action( 'plugins_loaded', 'CTLearnDash_Loader::get_instance' );
-
