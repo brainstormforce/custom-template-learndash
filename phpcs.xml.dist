@@ -18,8 +18,4 @@
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
-
-	<rule ref="WordPress.CSRF.NonceVerification.NoNonceVerification">
-		<exclude-pattern>*/admin/class-ctlearndash-admin.php</exclude-pattern>
-	</rule>
 </ruleset>

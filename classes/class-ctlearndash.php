@@ -441,7 +441,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			}
 
 			return false;
-		} 
+		}
 
 	}
 }
