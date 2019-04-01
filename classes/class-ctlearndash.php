@@ -172,7 +172,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 				return false;
 			}
 
-			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
+			$template = learndash_get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 			if ( '' === $template ) {
 				return false;
 			}
@@ -199,7 +199,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 				return false;
 			}
 
-			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
+			$template = learndash_get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 			if ( 'none' !== $template && $template ) {
 				if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 
@@ -286,7 +286,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 */
 		public function render( $content ) {
 
-			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
+			$template = learndash_get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 			if ( 'none' !== $template && $template ) {
 				$content  = '<div class="custom-template-learndash-content">';
 				$content .= $this->get_action_content( $template );
@@ -351,6 +351,13 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			if ( self::is_tve_activated( $post_id ) ) {
 				ob_start();
 				echo apply_filters( 'the_content', $post->post_content ); // WPCS: XSS OK.
+				wp_reset_postdata();
+				return ob_get_clean();
+			}
+
+			if ( self::is_divi_activated( $post_id ) ) {
+				ob_start();
+				echo '<div id="et-boc" class="et-boc">' . apply_filters( 'the_content', $post->post_content ) . '</div>'; // WPCS: XSS OK.
 				wp_reset_postdata();
 				return ob_get_clean();
 			}
@@ -421,6 +428,20 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 				return false;
 			}
 		}
+
+		/**
+		 * Check if Divi is activated n the layout.
+		 *
+		 * @param int $id Post id.
+		 * @return boolean
+		 */
+		public static function is_divi_activated( $id ) {
+			if ( function_exists( 'et_pb_is_pagebuilder_used' ) && et_pb_is_pagebuilder_used( $id ) ) {
+				return true;
+			}
+
+			return false;
+		} 
 
 	}
 }
