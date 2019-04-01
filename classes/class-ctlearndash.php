@@ -201,14 +201,14 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 
 			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 			if ( 'none' !== $template && $template ) {
-				if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 
-					if ( self::is_elementor_activated( $template ) ) {
-
-						$css_file = new \Elementor\Post_CSS_File( $template );
-						$css_file->enqueue();
-					}
+				if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+					$css_file = new \Elementor\Core\Files\CSS\Post( $template );
+				} elseif ( class_exists( '\Elementor\Post_CSS_File' ) ) {
+					$css_file = new \Elementor\Post_CSS_File( $template );
 				}
+
+				$css_file->enqueue();
 
 				// Check if current layout is built using the thrive architect.
 				if ( self::is_tve_activated( $template ) ) {
