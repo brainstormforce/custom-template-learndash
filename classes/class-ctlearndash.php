@@ -426,3 +426,4 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 }
 
 CTLearnDash::get_instance();
+
