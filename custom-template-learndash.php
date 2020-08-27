@@ -3,7 +3,7 @@
  * Plugin Name:     Custom Template for LearnDash
  * Plugin URI:      https://github.com/brainstormforce/custom-template-learndash
  * Description:     This plugin will help you replace default LearnDash course template for non-enrolled students with a custom template. You can design the custom template with any page builder of your choice.
- * Author:          brainstormforce
+ * Author:          Brainstorm Force
  * Author URI:      https://www.brainstormforce.com/
  * Text Domain:     custom-template-learndash
  * Domain Path:     /languages
@@ -32,4 +32,3 @@ define( 'CTLEARNDASH_URL', plugins_url( '/', __FILE__ ) );
 define( 'CTLEARNDASH_PATH', plugin_basename( __FILE__ ) );
 
 require_once CTLEARNDASH_DIR . 'classes/class-ctlearndash-loader.php';
-
