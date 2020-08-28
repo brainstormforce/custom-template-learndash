@@ -29,7 +29,7 @@ In nutshell, transform the default LearnDash course template that appears for no
 2. Add a new Custom Template from the menu that would appear under LearnDash LMS Menu.
 3. The new Custom Templates will appear in the admin area of all individual courses under option "Select Custom Template for this Course".
 4. Select the template for individual course.
-5. The default LearnDash template for that individual course will be replaced with the custom template selected in previous step
+5. The default LearnDash template for that individual course will be replaced with the custom template selected in previous step.
 
 This plugin currently works best with the <a href="https://wpastra.com/?utm_source=wp-org&utm_medium=readme&utm_campaign=custom-templates-learndash">Astra Theme</a>.
 
