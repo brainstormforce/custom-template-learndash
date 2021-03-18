@@ -172,7 +172,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 				return false;
 			}
 
-			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
+			$template = learndash_get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 			if ( '' === $template ) {
 				return false;
 			}
@@ -199,7 +199,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 				return false;
 			}
 
-			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
+			$template = learndash_get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 			if ( 'none' !== $template && $template ) {
 				if ( class_exists( '\Elementor\Post_CSS_File' ) ) {
 
@@ -286,7 +286,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 		 */
 		public function render( $content ) {
 
-			$template = get_course_meta_setting( get_the_id(), 'learndash_course_template' );
+			$template = learndash_get_course_meta_setting( get_the_id(), 'learndash_course_template' );
 			if ( 'none' !== $template && $template ) {
 				$content  = '<div class="custom-template-learndash-content">';
 				$content .= $this->get_action_content( $template );
