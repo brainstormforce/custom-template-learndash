@@ -22,7 +22,7 @@
     "minimist": ">=0.2.1",
     "sshpk": ">=1.13.2",
     "stringstream": ">=0.0.6",
-    "tar": ">=2.2.2",
+    "tar": ">=6.1.2",
     "tar-fs": ">=1.16.2",
     "underscore.string": ">=3.3.5"
   }
