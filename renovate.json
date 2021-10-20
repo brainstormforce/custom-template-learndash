@@ -3,5 +3,6 @@
     "config:base"
   ],
   "groupName": "all",
-  "rangeStrategy": "update-lockfile"
+  "rangeStrategy": "update-lockfile",
+  "dependencyDashboard": false
 }
