@@ -1,10 +1,10 @@
 # Custom Template for LearnDash #
-**Contributors:** brainstormforce, wpcrafter  
+**Contributors:** [brainstormforce](https://profiles.wordpress.org/brainstormforce/), [wpcrafter](https://profiles.wordpress.org/wpcrafter/)  
 **Donate link:** https://www.paypal.me/BrainstormForce  
 **Tags:** liftlms, course, page-buider, beaver builder, elementor, visual composer  
 **Requires at least:** 4.4  
 **Requires PHP:** 5.3  
-**Tested up to:** 5.8  
+**Tested up to:** 5.9  
 **Stable tag:** 1.0.2  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
@@ -35,21 +35,11 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 
 ## Screenshots ##
 
-### 1. Add a new Custom Template. ###
-![Add a new Custom Template.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-1.png)
-
-### 2. Create Template with Any Page Builder of your choice! ###
-![Create Template with Any Page Builder of your choice!](http://ps.w.org/custom-template-for-learndash/assets/screenshot-2.png)
-
-### 3. Select the Template for courses. ###
-![Select the Template for courses.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-3.png)
-
-### 4. Selected Template for non - enrolled students. ###
-![Selected Template for non - enrolled students.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-4.png)
-
-### 5. For enrolled students, the normal course page appears. ###
-![For enrolled students, the normal course page appears.](http://ps.w.org/custom-template-for-learndash/assets/screenshot-5.png)
-
+1. Add a new Custom Template.
+2. Create Template with Any Page Builder of your choice!
+3. Select the Template for courses.
+4. Selected Template for non - enrolled students.
+5. For enrolled students, the normal course page appears.
 
 ## Changelog ##
 
