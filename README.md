@@ -43,6 +43,9 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 
 ## Changelog ##
 
+### 1.0.4  ###
+- Fix: Version number updated.
+
 ### 1.0.3  ###
 - Fix: Code updated according to coding standard.
 
