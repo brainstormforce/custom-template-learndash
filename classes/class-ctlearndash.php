@@ -308,7 +308,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 
 			global $post;
 			$current_post = $post;
-			$post         = get_post( $post_id, OBJECT ); // WPCS: OVERRIDE OK.
+			$post         = get_post( $post_id, OBJECT ); // phpcs:ignore OVERRIDE OK.
 			setup_postdata( $post );
 
 			if ( class_exists( 'FLBuilderModel' ) ) {
@@ -319,7 +319,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 
 					ob_start();
 					if ( is_callable( 'FLBuilderShortcodes::insert_layout' ) ) {
-						echo FLBuilderShortcodes::insert_layout( // WPCS: XSS OK.
+						echo FLBuilderShortcodes::insert_layout( // phpcs:ignore XSS OK.
 							array(
 								'id' => $post_id,
 							)
@@ -333,10 +333,10 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			if ( self::is_elementor_activated( $post_id ) ) {
 
 				// set post to glabal post.
-				$post               = $current_post; // WPCS: OVERRIDE OK.
+				$post               = $current_post; // phpcs:ignore OVERRIDE OK.
 				$elementor_instance = Elementor\Plugin::instance();
 				ob_start();
-				echo $elementor_instance->frontend->get_builder_content_for_display( $post_id ); // WPCS: XSS OK.
+				echo $elementor_instance->frontend->get_builder_content_for_display( $post_id ); // phpcs:ignore XSS OK.
 				wp_reset_postdata();
 				return ob_get_clean();
 			}
@@ -350,7 +350,7 @@ if ( ! class_exists( 'CTLearnDash' ) ) {
 			// Add custom support for the Thrive Architect.
 			if ( self::is_tve_activated( $post_id ) ) {
 				ob_start();
-				echo apply_filters( 'the_content', $post->post_content ); // WPCS: XSS OK.
+				echo apply_filters( 'the_content', $post->post_content ); // phpcs:ignore XSS OK.
 				wp_reset_postdata();
 				return ob_get_clean();
 			}

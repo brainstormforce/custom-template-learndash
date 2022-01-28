@@ -25,7 +25,7 @@ function ctlearndash_activation() {
 	add_option( 'ctlearndash_activation', 'is-activated' );
 }
 
-define( 'CTLEARNDASH_VER', '1.0.2' );
+define( 'CTLEARNDASH_VER', '1.0.3' );
 define( 'CTLEARNDASH_FILE', __FILE__ );
 define( 'CTLEARNDASH_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CTLEARNDASH_URL', plugins_url( '/', __FILE__ ) );
