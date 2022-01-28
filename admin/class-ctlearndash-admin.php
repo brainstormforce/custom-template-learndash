@@ -147,7 +147,7 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 
 			$atts = array(
 				'post_type'      => 'ld-custom-template',
-				'posts_per_page' => 500,
+				'posts_per_page' => 500, //phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_posts_per_page
 				'fields'         => 'ids',
 				'post_status'    => 'publish',
 			);
@@ -315,7 +315,7 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 		 */
 		public function save_course_landing_page( $post_id ) {
 
-			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? absint( $_POST['course_template'] ) : '';
+			$landing_page_id = ( isset( $_POST['course_template'] ) ) ? absint( $_POST['course_template'] ) : ''; //phpcs:ignore WordPress.CSRF.NonceVerification.NoNonceVerification
 
 			update_post_meta( $post_id, 'course_template', $landing_page_id );
 		}
