@@ -24,7 +24,7 @@ In nutshell, transform the default LearnDash course template that appears for no
 1. Upload `custom-template-learndash.zip` to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-== Here is how this plugin works: == 
+== Here is how this plugin works: ==
 1. Install & Active the Plugin.
 2. Add a new Custom Template from the menu that would appear under LearnDash LMS Menu.
 3. The new Custom Templates will appear in the admin area of all individual courses under option "Select Custom Template for this Course".

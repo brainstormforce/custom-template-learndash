@@ -211,8 +211,8 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 			global $parent_file, $current_screen, $submenu_file, $pagenow;
 
 			if ( ( 'post-new.php' === $pagenow || 'post.php' === $pagenow ) && 'ld-custom-template' === $current_screen->post_type ) :
-				$submenu_file = 'edit.php?post_type=ld-custom-template'; // WPCS: OVERRIDE OK.
-				$parent_file  = 'learndash-lms'; // WPCS: OVERRIDE OK.
+				$submenu_file = 'edit.php?post_type=ld-custom-template'; // phpcs:ignore OVERRIDE OK.
+				$parent_file  = 'learndash-lms'; // phpcs:ignore OVERRIDE OK.
 			endif;
 
 			return $parent_file;

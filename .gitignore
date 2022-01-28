@@ -9,3 +9,4 @@ node_modules/
 *.zip
 .github
 .wordpress-org
+vendor/
