@@ -3,11 +3,11 @@
  * Plugin Name:     Custom Template for LearnDash
  * Plugin URI:      https://github.com/brainstormforce/custom-template-learndash
  * Description:     This plugin will help you replace default LearnDash course template for non-enrolled students with a custom template. You can design the custom template with any page builder of your choice.
- * Author:          Brainstorm Force
- * Author URI:      https://www.brainstormforce.com/
+ * Author:          Pratik Chaskar
+ * Author URI:      https://pratikchaskar.com/
  * Text Domain:     custom-template-learndash
  * Domain Path:     /languages
- * Version:         1.0.4
+ * Version:         1.0.5
  *
  * @package         Custom Template for LearnDash
  */
@@ -25,7 +25,7 @@ function ctlearndash_activation() {
 	add_option( 'ctlearndash_activation', 'is-activated' );
 }
 
-define( 'CTLEARNDASH_VER', '1.0.4' );
+define( 'CTLEARNDASH_VER', '1.0.5' );
 define( 'CTLEARNDASH_FILE', __FILE__ );
 define( 'CTLEARNDASH_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CTLEARNDASH_URL', plugins_url( '/', __FILE__ ) );

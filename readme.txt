@@ -1,11 +1,10 @@
 === Custom Template for LearnDash ===
-Contributors: brainstormforce, wpcrafter
-Donate link: https://www.paypal.me/BrainstormForce
+Contributors: pratikchaskar, wpcrafter
 Tags: liftlms, course, page-buider, beaver builder, elementor, visual composer
 Requires at least: 4.4
 Requires PHP: 5.3
-Tested up to: 6.0
-Stable tag: 1.0.4
+Tested up to: 6.1
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +41,9 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 5. For enrolled students, the normal course page appears.
 
 == Changelog ==
+
+= 1.0.5  =
+- Improvement: Added compatibility to WordPress 6.1
 
 = 1.0.4  =
 - Fix: Version number updated.
