@@ -1,6 +1,5 @@
 === Custom Template for LearnDash ===
 Contributors: pratikchaskar, wpcrafter
-Donate link: https://www.paypal.me/BrainstormForce
 Tags: liftlms, course, page-buider, beaver builder, elementor, visual composer
 Requires at least: 4.4
 Requires PHP: 5.3
