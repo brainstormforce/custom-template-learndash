@@ -101,7 +101,7 @@ if ( ! class_exists( 'CTLearnDash_Admin' ) ) {
 			echo sprintf(
 				/* translators: 1: anchor start, 2: anchor close */
 				esc_html__( '%1$sSee list of all LearnDash shortcodes%2$s that you can add in the custom template.', 'custom-template-learndash' ),
-				'<a href="https://learndash.com/docs/shortcodes/" target="_blank" rel="noopner" >',
+				'<a href="https://www.learndash.com/support/docs/core/shortcodes-blocks/" target="_blank" rel="noopner" >',
 				'</a>'
 			);
 
