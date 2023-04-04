@@ -9,3 +9,4 @@ node_modules/
 *.zip
 .wordpress-org
 vendor/
+config.bat
