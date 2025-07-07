@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Custom Template for LearnDash
- * Plugin URI:      https://github.com/brainstormforce/custom-template-learndash
+ * Plugin URI:      https://github.com/pratikchaskar/custom-template-learndash
  * Description:     This plugin will help you replace default LearnDash course template for non-enrolled students with a custom template. You can design the custom template with any page builder of your choice.
  * Author:          Pratik Chaskar
  * Author URI:      https://pratikchaskar.com/

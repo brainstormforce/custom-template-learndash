@@ -1,4 +1,4 @@
-# Copyright (C) 2018 brainstormforce
+# Copyright (C) 2018 pratikchaskar
 # This file is distributed under the same license as the Custom Template for LearnDash package.
 msgid ""
 msgstr ""
@@ -142,7 +142,7 @@ msgid "Custom Template for LearnDash"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/brainstormforce/custom-template-learndash"
+msgid "https://github.com/pratikchaskar/custom-template-learndash"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -153,11 +153,11 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "brainstormforce"
+msgid "pratikchaskar"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.brainstormforce.com/"
+msgid "https://www.pratikchaskar.com/"
 msgstr ""
 
 #: admin/class-ctlearndash-admin.php:230
