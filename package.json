@@ -1,6 +1,6 @@
 {
   "name": "custom-template-learndash",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "Gruntfile.js",
   "author": "YOUR NAME HERE",
   "devDependencies": {
