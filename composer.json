@@ -1,5 +1,5 @@
 {
-  "name": "brainstormforce/custom-template-learndash",
+  "name": "pratikchaskar/custom-template-learndash",
   "description": "Custom Template Learndash in Astra Theme",
   "require-dev": {
       "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",

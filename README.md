@@ -4,7 +4,7 @@
 **Requires at least:** 4.4  
 **Requires PHP:** 5.3  
 **Tested up to:** 6.8  
-**Stable tag:** 1.0.6  
+**Stable tag:** 1.0.7  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -41,6 +41,9 @@ This plugin currently works best with the <a href="https://wpastra.com/?utm_sour
 5. For enrolled students, the normal course page appears.
 
 ## Changelog ##
+
+### 1.0.7  ###
+- Fix: Updated Readme file.
 
 ### 1.0.6  ###
 - Fix: Updated broken link found inside editor.
