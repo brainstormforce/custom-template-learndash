@@ -9,3 +9,5 @@ node_modules/
 *.zip
 .wordpress-org
 vendor/
+
+.claude/settings.local.json
