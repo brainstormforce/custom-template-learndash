@@ -23,7 +23,7 @@
     "sshpk": ">=1.13.2",
     "stringstream": ">=0.0.6",
     "tar": ">=6.1.2",
-    "tar-fs": ">=1.16.2",
+    "tar-fs": ">=2.1.4",
     "underscore.string": ">=3.3.5"
   }
 }
