@@ -1,6 +1,11 @@
 {
   "name": "pratikchaskar/custom-template-learndash",
   "description": "Custom Template Learndash in Astra Theme",
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
   "require-dev": {
       "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
       "wp-coding-standards/wpcs": "dev-master",
